@@ -1,0 +1,8 @@
+# https://wiki.vg/Protocol_version_numbers
+whitelist:
+  server1:
+    - 5
+    - 47
+  server2:
+    - 762
+kick-message: "&cYou are using unsupported version!"

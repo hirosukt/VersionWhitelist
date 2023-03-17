@@ -17,7 +17,6 @@ repositories {
 
 dependencies {
     compileOnly("net.md-5:bungeecord-api:$pluginVersion-SNAPSHOT")
-    implementation("org.yaml:snakeyaml:2.0")
     implementation(kotlin("stdlib"))
 }
 
@@ -47,7 +46,6 @@ tasks {
     shadowJar {
         val loweredProject = project.name.lowercase()
         exclude("org/slf4j/**")
-        relocate("org.snakeyaml", "love.chihuyu.$loweredProject.lib.org.snakeyaml")
         relocate("kotlin", "love.chihuyu.$loweredProject.lib.kotlin")
     }
 }
@@ -69,7 +67,7 @@ publishing {
 }
 
 kotlin {
-    jvmToolchain(18)
+    jvmToolchain(8)
 }
 
 open class SetupTask : DefaultTask() {
