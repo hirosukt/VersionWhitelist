@@ -1,7 +1,6 @@
 package love.chihuyu.versionwhitelist.listener
 
 import love.chihuyu.versionwhitelist.VersionWhitelistAPI
-import love.chihuyu.versionwhitelist.VersionWhitelistPlugin
 import net.md_5.bungee.api.ChatColor
 import net.md_5.bungee.api.chat.TextComponent
 import net.md_5.bungee.api.event.ServerConnectEvent
@@ -15,8 +14,6 @@ object LoginListener: Listener {
     fun onLogin(e: ServerConnectEvent) {
         val player = e.player
         val server = e.target
-
-        VersionWhitelistPlugin.VersionWhitelistPlugin.logger.info(player.pendingConnection.version.toString())
 
         if (VersionWhitelistAPI.checkVersion(player.pendingConnection.version, server)) {
             e.target = (player.server ?: return).info
